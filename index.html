@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajesh Kumar | Web Developer and Designer</title>
+<link rel="stylesheet" href="./stlye.css">
+<style>
+  </style>
+</head>
+<body>
+
+<nav>
+<div class="logo">My <span>Portfolio</span></div>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About Me</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero" id="home">
+<div class="hero-text">
+<h1>Hi, I'm Rajesh Kumar</h1>
+<p>I design and build fast, modern websites that help small businesses and startups grow online.</p>
+<a class="btn" href="#contact">Hire Me</a>
+<button class="btn alt" onclick="document.getElementById('photoInput').click()">View Project</button>
+</div>
+<div class="photo-wrap">
+<img id="photo" class="photo" alt="Rajesh Kumar" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><rect width='280' height='280' fill='%2399f6e4'/><circle cx='140' cy='110' r='50' fill='%230f766e'/><ellipse cx='140' cy='235' rx='85' ry='60' fill='%230f766e'/></svg>" onclick="document.getElementById('photoInput').click()">
+<input type="file" id="photoInput" accept="image/*" hidden>
+<div class="photo-hint">Click the photo to change it</div>
+</div>
+</section>
+
+<section id="about">
+<h2>About Me</h2>
+<div class="about">
+<p>I am a web developer and designer who works directly with every client. From the first idea to launch day and beyond, I take care of design, development and support, so you can focus on your business.</p>
+<div class="stats">
+<div><b>50+</b>Projects</div>
+<div><b>5+</b>Years</div>
+<div><b>40+</b>Happy Clients</div>
+</div>
+<div class="skills" style="margin-top:28px">
+<span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>WordPress</span><span>Figma</span><span>SEO</span>
+</div>
+</div>
+</section>
+
+<section id="services" style="background:#fff">
+<h2>Services</h2>
+<div class="grid">
+<div class="card"><h3>Business Websites</h3><p>Professional sites that build trust and bring enquiries.</p></div>
+<div class="card"><h3>E-Commerce Stores</h3><p>Online shops with secure payments and order tracking.</p></div>
+<div class="card"><h3>UI and Brand Design</h3><p>Clean layouts, colours and typography for your brand.</p></div>
+<div class="card"><h3>Redesign and Support</h3><p>Faster, modern websites with ongoing maintenance.</p></div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="grid">
+<div class="card"><h3>Restaurant Website</h3><p>Online menu and table booking. Bookings up 40% in two months.</p></div>
+<div class="card"><h3>Fashion Store</h3><p>Full e-commerce shop. Load time cut from 6 seconds to under 2.</p></div>
+<div class="card"><h3>Fitness Gym Brand</h3><p>Identity and membership site. 60% more online sign-ups.</p></div>
+</div>
+</section>
+
+<section id="contact" style="background:#fff">
+<h2>Contact</h2>
+<form onsubmit="event.preventDefault();alert('Thank you! I will reply soon.');this.reset()">
+<input type="text" placeholder="Your name" required>
+<input type="email" placeholder="Your email" required>
+<textarea rows="5" placeholder="Tell me about your project" required></textarea>
+<button class="send" type="submit">Send Message</button>
+</form>
+<br>
+<h6 align="center" style="color: greenyellow;">
+<button class="btn whatsapp">chat on whatsapp</button>
+</h6>
+</section>
+
+<footer>&copy; 2026 Rajesh Kumar. All rights reserved.</footer>
+
+<script>
+var photo=document.getElementById('photo');
+var input=document.getElementById('photoInput');
+var saved=localStorage.getItem('rajeshPhoto');
+if(saved){photo.src=saved;}
+input.addEventListener('change',function(){
+  var file=input.files[0];
+  if(!file){return;}
+  var reader=new FileReader();
+  reader.onload=function(e){
+    photo.src=e.target.result;
+    try{localStorage.setItem('rajeshPhoto',e.target.result);}catch(err){}
+  };
+  reader.readAsDataURL(file);
+});
+</script>
+
+</body>
+</html>
